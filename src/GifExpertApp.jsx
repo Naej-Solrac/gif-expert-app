@@ -3,7 +3,13 @@ import React from 'react'
 export const GifExpertApp = () => {
   return (
     <>
-        <h1>GifExpertApp</h1>
+      { /*titulo*/ }
+      <h1>GifExpertApp!</h1>
+
+      { /*Input*/ }
+
+      { /*Listado de Gif*/ }
+        { /*Gif Item*/ }
     </>
   )
 }
