@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { AddCategory } from './components/AddCategory';
 
 export const GifExpertApp = () => {
+
   //hook para mantener el estado 
-  const [ categories, setCategories ] = useState(['One punch', 'Dragon ball'])
+  const [ categories, setCategories ] = useState(['primer elemento'])
   console.log(categories);
 
   const onAddCategory = () => {
-
     setCategories( [...categories, 'jean'] ) // una forma de agregar categoria
     //setCategories( cat =>  [...categories, 'jean']) // otra forma de hacelo
   }
@@ -19,12 +19,13 @@ export const GifExpertApp = () => {
       <h1>GifExpertApp!</h1>
 
       { /*Input*/ }
-        <AddCategory/>
+        <AddCategory setCategories= { setCategories }/>
       { /*Listado de Gif*/ }
-      <button onClick={onAddCategory}>agregar</button>
+
       <ol>
-        {categories.map(category => {
-          return <li key={category}> { category } </li>
+        {
+          categories.map(category => {
+            return <li key={ category }> { category } </li>
           })
         }
       </ol>
