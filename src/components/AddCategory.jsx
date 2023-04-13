@@ -1,5 +1,5 @@
 import { useState } from "react";
-export const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({ onNewCategory }) => {
 
     const [inputValue, setInputValue] = useState('');
 
@@ -8,16 +8,13 @@ export const AddCategory = ({ setCategories }) => {
     }
 
     const onSubmit = (event) => {
-
         event.preventDefault(); //para evitar que se refresque
         console.log(inputValue);
         
-        //apra no permitir que hayan espacios vacion ni una sola letra, min 2
         if (inputValue.trim().length <= 1) return ;
-        //le envio el nuevo valor ingresado a categories
-        setCategories((categories) => [inputValue, ...categories]);
-        setInputValue('');
 
+        onNewCategory( inputValue.trim() )
+        setInputValue('');
     }
 
   return (

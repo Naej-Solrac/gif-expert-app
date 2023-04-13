@@ -8,8 +8,16 @@ export const GifExpertApp = () => {
   const [ categories, setCategories ] = useState(['primer elemento'])
   console.log(categories);
 
-  const onAddCategory = () => {
-    setCategories( [...categories, 'jean'] ) // una forma de agregar categoria
+  const onAddCategory = ( newCategory ) => {
+    console.log(newCategory);
+
+    //para que no se repita la misma busqueda
+    if (categories.includes( newCategory )) {
+      return;
+    }
+
+    setCategories([newCategory,...categories]);
+    //setCategories( [...categories, 'jean'] ) // una forma de agregar categoria
     //setCategories( cat =>  [...categories, 'jean']) // otra forma de hacelo
   }
 
@@ -19,7 +27,9 @@ export const GifExpertApp = () => {
       <h1>GifExpertApp!</h1>
 
       { /*Input*/ }
-        <AddCategory setCategories= { setCategories }/>
+        <AddCategory 
+          onNewCategory = {(event) => onAddCategory(event)}
+        />
       { /*Listado de Gif*/ }
 
       <ol>
