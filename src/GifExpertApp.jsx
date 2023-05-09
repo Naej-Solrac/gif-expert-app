@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
 
 export const GifExpertApp = () => {
 
   //hook para mantener el estado 
-  const [ categories, setCategories ] = useState(['primer elemento'])
+  const [ categories, setCategories ] = useState(['elemento 1', 'elemento 2'])
   console.log(categories);
 
   const onAddCategory = ( newCategory ) => {
@@ -23,23 +24,22 @@ export const GifExpertApp = () => {
 
   return (
     <>
-      { /*titulo*/ }
+
       <h1>GifExpertApp!</h1>
 
-      { /*Input*/ }
+
         <AddCategory 
           onNewCategory = {(event) => onAddCategory(event)}
         />
-      { /*Listado de Gif*/ }
 
-      <ol>
+
         {
-          categories.map(category => {
-            return <li key={ category }> { category } </li>
-          })
+          categories.map(category => (
+              <GifGrid key={ category } category={ category}/>
+            ))
         }
-      </ol>
-        { /*Gif Item*/ }
+
+
     </>
   )
 }
