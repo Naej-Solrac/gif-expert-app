@@ -1,16 +1,15 @@
-import React from 'react'
 import { useState } from 'react'
-import { AddCategory } from './components/AddCategory';
-import { GifGrid } from './components/GifGrid';
+import { AddCategory, GifGrid } from './components';
+
 
 export const GifExpertApp = () => {
 
   //hook para mantener el estado 
   const [ categories, setCategories ] = useState(['one piece'])
-  console.log(categories);
+  //console.log(categories);
 
   const onAddCategory = ( newCategory ) => {
-    console.log(newCategory);
+    //console.log(newCategory);
 
     //para que no se repita la misma busqueda
     if (categories.includes( newCategory )) {

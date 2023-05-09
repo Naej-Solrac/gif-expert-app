@@ -9,7 +9,7 @@ export const AddCategory = ({ onNewCategory }) => {
 
     const onSubmit = (event) => {
         event.preventDefault(); //para evitar que se refresque
-        console.log(inputValue);
+        //console.log(inputValue);
         
         if (inputValue.trim().length <= 1) return ;
 
